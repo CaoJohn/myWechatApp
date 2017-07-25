@@ -1,10 +1,139 @@
 <!--index.wxml-->
+<!-- <loading hidden="{{loadingHidden}}">加载中...</loading> -->
 <view class="container">
-  <view  bindtap="bindViewTap" class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  <view class="search-box">
+   <view class="bg-image"></view>
+   <input class="search-input" placeholder="搜索你想要的光伏方案" placeholder-class="placeholder-style" bindchange="bindChange"/>
+   <view class="search-btn">
+     <icon type="search" bindtap="confirm"/>
+   </view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+
+  <!-- 功能区 -->
+  <view class="function-area">
+    <view class="tag"><text>光伏方案</text></view>
+    <view class="function-list">
+      <navigator url="../filter/filter" hover-class="navigator-hover">
+        <view class="function">
+            <image src="icon/filter.png"></image>
+            <text>条件选择</text>
+        </view>
+      </navigator>
+      <navigator url="../filter/filter" hover-class="navigator-hover">
+        <view class="function">
+            <image src="icon/secretary.png"></image>
+            <text>已有方案</text>
+        </view>
+     </navigator>
+     <navigator url="../gotogo/gotogo" hover-class="navigator-hover">
+        <view class="function">
+            <image src="icon/gotogo.png"></image>
+            <text>手动搭配</text>
+        </view>
+     </navigator>
+     <!--<navigator url="../gotogo/gotogo" hover-class="navigator-hover">
+        <view class="function">
+            <image src="icon/gotogo.png"></image>
+            <text>逛一逛</text>
+        </view>
+     </navigator>-->
+
+    </view>
+  </view>
+  <!-- meta列表 -->
+  <view class="metainfo-area">
+    <view class="tag"><text>优秀光伏方案</text></view>
+    <view class="up-list">
+        <view class="up-list-item">
+          <navigator url="../article/article">
+             <view class="item-desc-container">
+                <image class="item-img" src="../../res/pic/guangfu001.jpeg"></image>
+                <view class="info-view">
+                  <text class="title">光伏方案一： 屋顶安装</text>
+                  <view class="content">让家家屋顶都变聚宝盆：光伏发电，你值得拥有</view>
+                  <view class="item-footer">
+                    <view class="item-footer-author">
+                      <image src="http://c.diaox2.com/cms/diaodiao/people/wangchen.jpg" class="avatar"></image>
+                      <text>路人甲</text>
+                    </view>
+                    <view class="item-footer-view">
+                      <image src="http://c.diaox2.com/cms/diaodiao/people/wangchen.jpg" class="view"></image>
+                      <text>15280</text>
+                    </view>
+                  </view>
+                </view>
+             </view>
+           </navigator>
+       </view>
+       <view class="up-list-item">
+         <navigator url="../article/article">
+            <view class="item-desc-container">
+               <image class="item-img" src="../../res/pic/guangfu002.jpeg"></image>
+               <view class="info-view">
+                 <text class="title">光伏方案二： 平楼安装</text>
+                 <view class="content">我们发现，在我们身边越来越多的光伏电站拔地而起。不仅是电力公司建设的集中式光伏电站，企业、城市、农村、工厂也都纷纷加入到了光伏发电的浪潮中，光伏电站随处可见！连邻居家都装光伏了，你还在等？</view>
+                 <view class="item-footer">
+                   <view class="item-footer-author">
+                     <image src="http://c.diaox2.com/cms/diaodiao/people/wangchen.jpg" class="avatar"></image>
+                     <text>路人甲</text>
+                   </view>
+                   <view class="item-footer-view">
+                     <image src="http://c.diaox2.com/cms/diaodiao/people/wangchen.jpg" class="view"></image>
+                     <text>15280</text>
+                   </view>
+                 </view>
+               </view>
+            </view>
+          </navigator>
+      </view>
+      <view class="up-list-item">
+        <navigator url="../article/article">
+           <view class="item-desc-container">
+              <image class="item-img" src="../../res/pic/guangfu003.jpeg"></image>
+              <view class="info-view">
+                <text class="title">光伏方案三： 写字楼安装</text>
+                <view class="content">由于受空间限制，只能在物业的天台上进行安装，而要安装又要征得50%以上的业主同意，所以推行起来会有难度，真正能装起来的看重的并不是电站的收益有多好，而是他们认同这种环保的生活方式。</view>
+                <view class="item-footer">
+                  <view class="item-footer-author">
+                    <image src="http://c.diaox2.com/cms/diaodiao/people/wangchen.jpg" class="avatar"></image>
+                    <text>路人甲</text>
+                  </view>
+                  <view class="item-footer-view">
+                    <image src="http://c.diaox2.com/cms/diaodiao/people/wangchen.jpg" class="view"></image>
+                    <text>15280</text>
+                  </view>
+                </view>
+              </view>
+           </view>
+         </navigator>
+     </view>
+     <view class="up-list-item">
+       <navigator url="../article/article">
+          <view class="item-desc-container">
+             <image class="item-img" src="../../res/pic/guangfu004.jpeg"></image>
+             <view class="info-view">
+               <text class="title">光伏方案四： 农村安装</text>
+               <view class="content">当然光伏也不是坑，它确实能赚钱。每发一度电就省了一度电的电费，同时还能领取国家0.42元的补贴。</view>
+               <view class="item-footer">
+                 <view class="item-footer-author">
+                   <image src="http://c.diaox2.com/cms/diaodiao/people/wangchen.jpg" class="avatar"></image>
+                   <text>路人甲</text>
+                 </view>
+                 <view class="item-footer-view">
+                   <image src="http://c.diaox2.com/cms/diaodiao/people/wangchen.jpg" class="view"></image>
+                   <text>15280</text>
+                 </view>
+               </view>
+             </view>
+          </view>
+        </navigator>
+    </view>
+    </view>
   </view>
 </view>
+
+<!-- 模态框start -->
+<modal hidden="{{modalHidden}}" no-cancel confirm-text="确定" bindconfirm="hideModal">
+  {{info}}
+</modal>
+<!-- 模态框end -->
